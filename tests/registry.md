@@ -26,7 +26,7 @@ subsystem, add a row to the Subsystems table. Then update this file:
 
 ## Subsystems
 
-98 subsystems, 4933 tests (5330 with loop copies).
+98 subsystems, 4948 tests (5345 with loop copies).
 
 | Code | Subsystem | Files | Tests |
 |---|---|---|---|
@@ -78,7 +78,7 @@ subsystem, add a row to the Subsystems table. Then update this file:
 | `FR` | Frame | `page/{frame-evaluate, frame-frame-element, frame-goto, frame-hierarchy}` | 36 |
 | `GE` | Geolocation | `library/geolocation` | 9 |
 | `GN` | Locator and selector generator | `library/{locator-generator, selector-generator}` | 104 |
-| `HA` | HAR | `library/{har, browsercontext-har, har-websocket}` | 112 |
+| `HA` | HAR | `library/{har, browsercontext-har, har-websocket}`<br>`library/unit/har-backend` | 127 |
 | `HE` | Headful | `library/headful` | 16 |
 | `HT` | Hit target | `library/hit-target` | 22 |
 | `IF` | Input files | `page/page-set-input-files` | 21 |
@@ -3157,6 +3157,21 @@ subsystem, add a row to the Subsystems table. Then update this file:
 | `HA-110` | `library/har-websocket.spec.ts` | should still allow routeWebSocket to fully mock the connection when capturing HAR |
 | `HA-111` | `library/har-websocket.spec.ts` | should still allow routeWebSocket to modify messages when capturing HAR |
 | `HA-112` | `library/har-websocket.spec.ts` | should respect PLAYWRIGHT\_HAR\_NO\_WEBSOCKET\_FRAMES |
+| `HA-113` | `library/browsercontext-har.spec.ts` | should serve repeated requests in recorded order |
+| `HA-114` | `library/browsercontext-har.spec.ts` | should keep recorded order across a redirected navigation |
+| `HA-115` | `library/browsercontext-har.spec.ts` | should follow a redirect back to a url with a later copy |
+| `HA-116` | `library/browsercontext-har.spec.ts` | should replay a todo api flow in recorded order |
+| `HA-117` | `library/browsercontext-har.spec.ts` | should replay polling and parallel requests in recorded order |
+| `HA-118` | `library/browsercontext-har.spec.ts` | should replay a login flow with cookies in recorded order |
+| `HA-119` | `library/browsercontext-har.spec.ts` | should keep separate recorded orders for html and json copies of one url |
+| `HA-120` | `library/unit/har-backend.spec.ts` | recorded order should serve one copy per concurrent lookup |
+| `HA-121` | `library/unit/har-backend.spec.ts` | recorded order should not skip a copy over a header the request does not send |
+| `HA-122` | `library/unit/har-backend.spec.ts` | recorded order should not prefer a copy for recording more headers |
+| `HA-123` | `library/unit/har-backend.spec.ts` | recorded order should reuse a served copy over an unserved copy recorded for another header value |
+| `HA-124` | `library/unit/har-backend.spec.ts` | recorded order should ignore a header that differs from every copy alike |
+| `HA-125` | `library/unit/har-backend.spec.ts` | recorded order should keep a sequence per POST body |
+| `HA-126` | `library/unit/har-backend.spec.ts` | recorded order should keep the slot of a copy whose content fails to load |
+| `HA-127` | `library/unit/har-backend.spec.ts` | should report a redirect cycle once every copy was followed |
 
 ### HE — Headful
 
